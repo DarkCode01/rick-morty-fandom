@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Layout } from 'antd';
 
 // Components
@@ -36,7 +36,10 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route path="/character/:id" component={Profile} />
+              <Route exact path="/characters">
+                <Redirect to="/" />
+              </Route>
+              <Route path="/characters/:id" component={Profile} />
             </Switch>
           </BrowserRouter>
 
