@@ -35,7 +35,7 @@ export default function({ character }) {
           </Tooltip>
         ]}
       >
-        <Card.Meta title={ <Link to={`/character/${character.id}`}> { character.name } </Link> } />
+        <Card.Meta title={ <Link to={`/characters/${character.id}`}> { character.name } </Link> } />
       </Card>
     </Col>
   );

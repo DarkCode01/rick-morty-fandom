@@ -3,6 +3,7 @@ import { gql } from 'apollo-boost';
 export const QUERY = {
   GET_CHARACTERS: gql`
     query Characters(
+      $page: Int!,
       $name: String!,
       $status: String!,
       $species: String!,
@@ -10,6 +11,7 @@ export const QUERY = {
       $gender: String!
       ){
         characters(
+          page: $page
           filter: { name: $name, status: $status, species: $species, type: $type, gender: $gender}
         ){
           info {

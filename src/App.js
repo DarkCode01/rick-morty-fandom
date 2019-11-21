@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Layout } from 'antd';
 
 // Components
-import Side from './components/sider';
+import Header from './components/header';
 
 // Sections Componets
 import Main from './pages/main';
@@ -15,34 +15,27 @@ class App extends Component {
     super(props);
 
     this.state = {}
-
-    this.handleToSelectSection = this.handleToSelectSection.bind(this);
-  }
-
-  handleToSelectSection(section) {
-    return () => {
-      this.setState(state => ({
-        ...state,
-        selected: section
-      }));
-    }
   }
 
   render() {
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Side handle={this.handleToSelectSection} />
-        <Layout>
-          <BrowserRouter>
+        <BrowserRouter>
+          <Header />
+
+          <Layout>
             <Switch>
               <Route exact path="/" component={Main} />
-              <Route path="/character/:id" component={Profile} />
+              <Route exact path="/characters">
+                <Redirect to="/" />
+              </Route>
+              <Route path="/characters/:id" component={Profile} />
             </Switch>
-          </BrowserRouter>
 
-          {/* Footer */}
-          <Layout.Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Layout.Footer>
-        </Layout>
+            {/* Footer */}
+            <Layout.Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Layout.Footer>
+          </Layout>
+        </BrowserRouter>
       </Layout>
     );
   }
