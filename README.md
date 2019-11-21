@@ -1,6 +1,6 @@
-# Rick & Morthy [Fandom] <3
+# Rick & Morty [Fandom] <3
 
-This is a simple project which is oriented to be able to give an approach to how we can implement [Apollo Client](https://www.apollographql.com/docs/react/) with [ReactJS](https://reactjs.org), they use the [Rick & Morthy API](https://rickandmortyapi.com/).
+This is a simple project which is oriented to be able to give an approach to how we can implement [Apollo Client](https://www.apollographql.com/docs/react/) with [ReactJS](https://reactjs.org), they use the [Rick & Morty API](https://rickandmortyapi.com/).
 
 ## Installation
 
