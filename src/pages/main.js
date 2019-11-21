@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 
 // utils
+import { handleError, ERRORS_MESSAGES } from '../utils/handlers';
 import { getQueryParams } from '../utils/query-builder';
 
 // Query
 import { QUERY }  from '../services/api';
 
 // components
-import { Layout, Pagination, Divider, PageHeader } from 'antd';
+import { Layout, Pagination, Divider, PageHeader, Empty, Icon } from 'antd';
 import Loading from '../components/loading';
-import Alert from '../components/alert';
 import CharactersList from '../components/characters/charactersList';
 import FilterForm from '../components/filter';
 import PageItem from '../components/pageItem';
@@ -70,7 +70,7 @@ export default class MainCharacters extends Component {
 
   render() {
     return (
-      <Query query={QUERY.GET_CHARACTERS} variables={{ ...this.state.filter, page: this.state.page }}>
+      <Query query={QUERY.GET_CHARACTERS} variables={{ ...this.state.filter, page: this.state.page }} onError={ handleError }>
         { ({ loading, error, data }) => {
             return (
               <>
@@ -89,7 +89,19 @@ export default class MainCharacters extends Component {
                 
                 <Layout.Content style={{ margin: '0 16px', padding: '24px', minHeight: 360 }}>
                   { loading && <Loading /> }
-                  { error && <Alert message="Error" description="Intentelo mas tarde. " type="warning" /> }
+                  {
+                    error && <Empty
+                                image={ <Icon type="frown" /> }
+                                imageStyle={{
+                                  fontSize: '100px'
+                                }}
+                                style={{
+                                  fontSize: '30px',
+                                  margin: '10%'
+                                }}
+                                description={ ERRORS_MESSAGES.INTERNAL_SERVER_ERROR }
+                              />
+                  }
           
                   { data && <CharactersList characters={ data.characters.results } /> }
                   

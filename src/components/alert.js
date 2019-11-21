@@ -8,15 +8,15 @@ export default function ({ message, description, type}) {
       message={message}
       description={description}
       type={type}
-      style={{
-        fontSize: '100px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        minHeight: '100vh'
-      }}
+      // style={{
+      //   fontSize: '100px',
+      //   display: 'flex',
+      //   flexDirection: 'column',
+      //   justifyContent: 'center',
+      //   alignItems: 'center',
+      //   textAlign: 'center',
+      //   minHeight: '100vh'
+      // }}
     />
   );
 }

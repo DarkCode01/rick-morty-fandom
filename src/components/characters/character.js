@@ -62,7 +62,7 @@ export default function Character({ character }) {
                       style={{ cursor: 'pointer' }}
                       onClick={ () => setState({ isVisible: true, residents: character.origin.residents }) }
                     >
-                      <Icon type="usergroup-add"/> <span style={{ color: "#87d068" }}>{ character.origin.residents.length }</span>
+                      <Icon type="usergroup-add"/> <span style={{ color: "#87d068" }}>{ character.origin.residents ? character.origin.residents.length : 0 }</span>
                     </strong>
                   </Card.Grid>
                   <Card.Grid style={{ width: '50%' }} hoverable={ false }>
