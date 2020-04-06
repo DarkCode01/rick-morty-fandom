@@ -22,7 +22,7 @@ export default function Header() {
           <Link to="/"> Characters </Link>
         </Menu.Item>
         <Menu.Item key="2" onClick={ () => setCurrent('2') }>
-          Episodes
+          <Link to="/episodes"> Episodes </Link>
         </Menu.Item>
         <Menu.Item key="3" onClick={ () => setCurrent('2') }>
           Locations

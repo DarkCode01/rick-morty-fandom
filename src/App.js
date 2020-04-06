@@ -7,6 +7,7 @@ import Header from './components/header';
 
 // Sections Componets
 import Main from './pages/main';
+import Episodes from './pages/episodes';
 import Profile from './pages/profile';
 
 
@@ -25,11 +26,12 @@ class App extends Component {
 
           <Layout>
             <Switch>
-              <Route exact path="/" component={Main} />
+              <Route exact path="/" component={ Main } />
+              <Route path="/episodes" component={ Episodes } />
               <Route exact path="/characters">
                 <Redirect to="/" />
               </Route>
-              <Route path="/characters/:id" component={Profile} />
+              <Route path="/characters/:id" component={ Profile } />
             </Switch>
 
             {/* Footer */}

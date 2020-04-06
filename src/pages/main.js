@@ -6,7 +6,7 @@ import { handleError, ERRORS_MESSAGES } from '../utils/handlers';
 import { getQueryParams } from '../utils/query-builder';
 
 // Query
-import { QUERY }  from '../services/api';
+import { CHARACTERS }  from '../services/api/queries/character';
 
 // components
 import { Layout, Pagination, Divider, PageHeader, Empty, Icon } from 'antd';
@@ -70,7 +70,7 @@ export default class MainCharacters extends Component {
 
   render() {
     return (
-      <Query query={QUERY.GET_CHARACTERS} variables={{ ...this.state.filter, page: this.state.page }} onError={ handleError }>
+      <Query query={ CHARACTERS } variables={{ ...this.state.filter, page: this.state.page }} onError={ handleError }>
         { ({ loading, error, data }) => {
             return (
               <>

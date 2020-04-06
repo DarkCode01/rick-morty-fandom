@@ -3,10 +3,10 @@ import { Query } from 'react-apollo';
 import { handleError } from '../utils/handlers';
 
 // api
-import { QUERY } from '../services/api';
+import { CHARACTER } from '../services/api/queries/character';
 
 // Components
-import { Layout, PageHeader } from 'antd';
+import { Layout, PageHeader, Card, Typography } from 'antd';
 import Character from '../components/characters/character';
 import EpisodesList from '../components/episodes/EpisodesList';
 import Loading from '../components/loading';
@@ -22,7 +22,7 @@ export default class Profile extends Component {
     render() {
       return (
         <Query
-          query={QUERY.GET_CHARACTER}
+          query={ CHARACTER }
           variables={{ id: this.props.match.params.id }}
           onError={handleError}
           errorPolicy="all"
@@ -44,7 +44,21 @@ export default class Profile extends Component {
                     { loading && <Loading /> }
                     { data && <Character character={ data.character } /> }
                     <br />
-                    { data && <EpisodesList episodes={ data.character.episode } /> }
+
+                    { data
+                      ? <Layout.Content> 
+                          <Card>
+                            <Typography.Title level={ 1 }>
+                              Episodes
+                            </Typography.Title>
+
+                            {/* Espisodes list */}
+                            <EpisodesList episodes={ data.character.episode } />
+                          </Card>
+                        </Layout.Content>
+                      
+                      : null
+                    }
                   </Layout.Content>
                 </>
               );
