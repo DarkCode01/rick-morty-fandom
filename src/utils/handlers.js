@@ -6,7 +6,6 @@ export const ERRORS_MESSAGES = {
 }
 
 export function handleError({ graphQLErrors, networkError }) {
-  alert();
   if (graphQLErrors) message.error(ERRORS_MESSAGES[graphQLErrors[0].extensions.code]);
   if (networkError) message.error(ERRORS_MESSAGES.NETWORK_ERROR);
 }

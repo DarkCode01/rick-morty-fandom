@@ -62,7 +62,7 @@ export default class Episodes extends Component {
                   { data
                     ? <Pagination
                         onChange={ () => {} }
-                        itemRender={ PageItem }
+                        itemRender={ PageItem('/episodes') }
                         defaultCurrent={ 1 }
                         total={ data.episodes.info.count }
                         pageSize={ 20 }

@@ -111,7 +111,7 @@ export default class MainCharacters extends Component {
                     {
                       data && <Pagination
                                 onChange={ this.changePage }
-                                itemRender={ PageItem }
+                                itemRender={ PageItem('/') }
                                 defaultCurrent={ this.state.page }
                                 total={ data.characters.info.count }
                                 pageSize={ 20 }
